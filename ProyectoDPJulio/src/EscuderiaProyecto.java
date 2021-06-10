@@ -34,16 +34,16 @@ public class EscuderiaProyecto {
 	public double puntosEscuderiaAcum() {
 		double pTotalesE=0;
 		for (Piloto p : conjuntoPilotos) {
-			pTotalesE+=p.puntosAcumulados();
+			if(!p.isDescalificado())
+				pTotalesE+=p.puntosAcumulados();
 		} 
 		return pTotalesE;
 	}
 	public boolean devolverPilotoEscuderia(Piloto p) {
 		if(listaNombrePilotos.contains(p.getNombrePiloto())) {
 			conjuntoPilotos.add(p);
-			meterCocheEscuderia(p.getC()); //TODO quitar cast
+			meterCocheEscuderia(p.getC()); 
 			p.setC(null);
-
 			return true;
 		}else
 			return false;
@@ -53,31 +53,38 @@ public class EscuderiaProyecto {
 		Piloto pi=null;
 		boolean salir=false;
 		boolean hayCoche=false;//
+		
 		while(itPil.hasNext()&&!salir) {
 			pi=itPil.next();
-			if(pi.isDescalificado()==false) {
+			if(!pi.isDescalificado()) {
 				salir=true;
 			}
 		}
+		
 		if(pi!=null) {
-			Iterator<InterfazCoches> itCoc=conjuntoCoches.iterator();
-			InterfazCoches c=null;
-				while (itCoc.hasNext() && !hayCoche) {
-				c = itCoc.next();
-				if(c.getCombustibleAct()>0) {
-					pi.setC(c);
-					hayCoche=true;
-				}		
-			} 
-			if(!hayCoche) {
-				System.out.println("¡¡¡ "+ pi.getNombrePiloto() +" NO ES ENVIADO A LA CARRERA porque su escudería("+this.nombreEscuderia+") no tiene más coches con combustible disponibles !!!");
-			}else {
-				conjuntoCoches.remove(c);
-				conjuntoPilotos.remove(pi);
-				return pi;	
+			if(!pi.isDescalificado()) {
+				Iterator<InterfazCoches> itCoc=conjuntoCoches.iterator();
+				InterfazCoches c=null;
+					while (itCoc.hasNext() && !hayCoche) {
+					c = itCoc.next();
+					if(c.getCombustibleAct()>0) {
+						pi.setC(c);
+						hayCoche=true;
+					}		
+				} 
+				if(!hayCoche) {
+					System.out.println("¡¡¡ "+ pi.getNombrePiloto() +" NO ES ENVIADO A LA CARRERA porque su escudería("+this.nombreEscuderia+") no tiene más coches con combustible disponibles !!!");
+					pi=null;
+				}else {
+					conjuntoCoches.remove(c);
+					conjuntoPilotos.remove(pi);
+					return pi;	
+				}
+			} else {
+				pi=null;
 			}
 		}
-		return null;
+		return pi;
 	}
 		public void setOrdenacionEstrategiaPiloto(Comparator<Piloto> epil) {
 		Set<Piloto> aux = new TreeSet<>(epil);
@@ -93,6 +100,28 @@ public class EscuderiaProyecto {
 		List<Piloto> arrayPilotos = new ArrayList<Piloto>(); 
 		arrayPilotos.addAll(conjuntoPilotos);
 		return arrayPilotos;
+	}
+	
+	public Boolean isDescalificada() {
+		int pDescalificados=0;
+		for(Piloto p : conjuntoPilotos) {
+			if(p.isDescalificado())
+				pDescalificados++;
+		}
+		if(pDescalificados == conjuntoPilotos.size())
+			return true;
+		else 
+			return false;
+	}
+	
+	public int carrerasEscuderiaAcum() {
+		int totalCarreras=0;
+		Iterator<Piloto> itPilotos= conjuntoPilotos.iterator();
+		while(itPilotos.hasNext()) {
+			Piloto p = itPilotos.next();
+			totalCarreras += p.totalTerminadas();
+		}
+		return totalCarreras;
 	}
 
 	@Override

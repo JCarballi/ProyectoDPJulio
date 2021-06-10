@@ -3,7 +3,7 @@ import java.util.Comparator;
 public class RallyDemo {
 	
 	public static void main(String[] args) {
-		DatosCampeonatoCompleto d = new DatosCampeonatoCompleto();
+		DatosCampeonatoCompleto d = new DatosCampeonatoCompleto(); //initData privado
 		//DatosCampeonatoFinPrematuro d2 = new DatosCampeonatoFinPrematuro();
 		//DatosCampeonatoPremioDesierto d3 = new DatosCampeonatoPremioDesierto();
 		Comparator<Piloto> cPilotoCarrerasTotales = new ComparadorPilotoTotalCarreras();

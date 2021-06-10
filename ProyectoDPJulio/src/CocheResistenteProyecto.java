@@ -10,14 +10,13 @@ public class CocheResistenteProyecto extends CocheProyecto {
 	}
 	
 	@Override
-	public double combustibleFinaldeCoche(double valor) {
-		if(this.reservaExtra>0 && valor>super.getCombustibleAct()) {
-			valor -= reservaExtra;
+	public void reducirCombustible(double combustibleAct) {
+		if(this.reservaExtra>0 && combustibleAct>super.getCombustibleAct()) {
+			this.combustibleAct = Math.round((this.combustibleAct + reservaExtra - combustibleAct)*100d)/100d;
 			this.reservaExtra=0;
-			System.out.println("+++ El"+ getNombreCoche() +"tiene que recurrir al depósito de reserva para poder correr +++");
-
-		}
-		return super.combustibleFinaldeCoche(valor);
+			System.out.println("+++ El"+ getNombreCoche() +" tiene que recurrir al depósito de reserva para poder correr +++");
+		}else
+			super.reducirCombustible(combustibleAct);
 
 	}
 

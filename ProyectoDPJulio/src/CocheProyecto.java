@@ -2,13 +2,13 @@ public class CocheProyecto implements InterfazCoches {
 	private String nombreCoche;
 	private Velocidad velocidadCoche;
 	private Combustible combustibleCoche;
-	private double combustibleAct;
+	protected double combustibleAct; //TODO preguntar si protected esta bien
 	
 	public double getCombustibleAct() {
 		return combustibleAct;
 	}
 	public void reducirCombustible(double combustibleAct) {
-		this.combustibleAct -= combustibleAct;
+		this.combustibleAct = Math.round((this.combustibleAct - combustibleAct)*100d)/100d;
 	}
 
 	public String getNombreCoche() {
@@ -61,11 +61,6 @@ public class CocheProyecto implements InterfazCoches {
 		double veloReal=this.velocidadRealCoche(destreza, c);
 		System.out.println("Con estas condiciones es capaz de correr a "+ veloReal +"km/h");
 		return  Math.round(((c.getValorDistanciaCircuito()/veloReal)*60)*100d)/100d;
-	}
-	public double combustibleFinaldeCoche(double valor) {
-
-		return this.combustibleAct-valor;
-		
 	}
 
 	@Override

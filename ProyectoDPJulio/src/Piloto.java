@@ -51,6 +51,7 @@ public abstract class Piloto {
 		this.descalificado = descalificado;
 	}
 	public abstract double calcularDestrezaPiloto();
+	
 	public Resultado getResults(String nombrecircuito) {
 		return results.get(nombrecircuito);
 	}
@@ -104,7 +105,7 @@ public abstract class Piloto {
 				if(c.getCombustibleAct() <= concentracionRestante) {
 					r.setTiempo(c.getCombustibleAct());
 					setUltimoTiempo(c.getCombustibleAct());
-					c.reducirCombustible(c.getCombustibleAct());
+					//c.reducirCombustible(c.getCombustibleAct());
 				}else {
 					r.setTiempo(concentracionRestante);
 					setUltimoTiempo(concentracionRestante);
@@ -117,17 +118,17 @@ public abstract class Piloto {
 			this.setResults(r, cir.getNombreCircuito());
 			if(this.getResults(cir.getNombreCircuito()).getTiempo() <= 0) {
 				if(this.getC().getCombustibleAct() <= 0) {
-					System.out.println("¡¡¡ El "+ this.getC().getNombreCoche() +" se quedó sin combustible a falta de"+ -this.getC().getCombustibleAct() +"minutos para terminar !!!");
-					System.out.println("¡¡¡ En el momento de quedarse sin combustible llevaba en carrera "+ (tiempoNeces+this.getC().getCombustibleAct()) +" minutos !!!");
+					System.out.println("¡¡¡ El "+ this.getC().getNombreCoche() +" se quedó sin combustible a falta de "+ -this.getC().getCombustibleAct() +" minutos para terminar !!!");
+					System.out.println("¡¡¡ En el momento de quedarse sin combustible llevaba en carrera "+ (Math.round(tiempoNeces+this.getC().getCombustibleAct()*100d)/100d) +" minutos !!!");
 				}else {
 					System.out.println("¡¡¡ "+this.getNombrePiloto()+" perdió la concentración a falta de "+ -concentracionRestante +" minutos para terminar !!!");
-					System.out.println("¡¡¡ En el momento del despiste llevaba en carrera "+ (tiempoNeces+concentracionRestante)+" minutos !!!");
+					System.out.println("¡¡¡ En el momento del despiste llevaba en carrera "+ (Math.round((tiempoNeces+concentracionRestante)*100d)/100d)+" minutos !!!");
 				}
 			}else {
 				System.out.println("+++ "+this.getNombrePiloto()+" termina la carrera en "+ tiempoNeces +"minutos +++");
 
 			}
-			System.out.println("+++ El combustible del "+ this.getC().getNombreCoche() +" tras la carrera es "+ this.getC().getCombustibleAct() +"+++");
+			System.out.println("+++ El combustible del "+ this.getC().getNombreCoche() +" tras la carrera es "+ this.getC().getCombustibleAct() +" +++");
 
 			System.out.println("@@@");
 

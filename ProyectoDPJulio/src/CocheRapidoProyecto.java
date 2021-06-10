@@ -19,7 +19,7 @@ public class CocheRapidoProyecto extends CocheProyecto{
 			veloFinal= Math.round((veloFinal+veloReal)*100d)/100d;
 			double diferencia=Math.round((veloFinal-veloReal)*100d)/100d;
 			if(this.depositoN<diferencia) {
-				veloFinal=veloReal + this.depositoN;
+				veloFinal=Math.round((veloReal + this.depositoN)*100d)/100d;
 				this.depositoN=0;
 
 			}

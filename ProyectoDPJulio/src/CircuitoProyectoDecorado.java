@@ -1,7 +1,7 @@
 public abstract class CircuitoProyectoDecorado extends CircuitoProyecto  {
-	protected CircuitoProyecto cp;
+	protected CircuitoProyectoInterfaz cp;
 
-	public CircuitoProyectoDecorado(CircuitoProyecto cp) {
+	public CircuitoProyectoDecorado(CircuitoProyectoInterfaz cp) {
 		super(cp.getComplejidadCircuito(),cp.getDistanciaCircuito(),cp.getNombreCircuito());
 		this.cp=cp;
 	}
