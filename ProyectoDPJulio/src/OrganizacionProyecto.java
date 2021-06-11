@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.io.IOException;
 import java.util.*;
 /**
  * 
@@ -34,9 +35,10 @@ public class OrganizacionProyecto {
 	/**
 	 * Metodo que realiza una carrera completa
 	 * @param compaP es el orden en el que se ordenan los pilotos que van a competir
+	 * @throws IOException 
 	 *
 	 */
-	private void carrera(Comparator<Piloto>compaP) {
+	private void carrera(Comparator<Piloto>compaP) throws IOException {
 		boolean finPrematuro=false;
 
 		for(int i=0;i<listaCircuitos.size() && !finPrematuro;i++) { 
@@ -125,42 +127,46 @@ public class OrganizacionProyecto {
 			}
 		}
 	}
-	public void asignarPuntos(CircuitoProyectoInterfaz cp) {
+	public void asignarPuntos(CircuitoProyectoInterfaz cp){
 		Piloto Ppuntos;
 		int posicion;
 		Comparator<Piloto> cpUltima = new ComparadorPilotoUltimoTiempoCarrera(); 
 		listaPilotosProyecto.sort(cpUltima);
 		Resultado r;
 		for(posicion=0;posicion<this.listaPilotosProyecto.size();posicion++) {
-			Ppuntos=listaPilotosProyecto.get(posicion);
-			r = Ppuntos.getResults(cp.getNombreCircuito());
-			if(r.getTiempo()<0)
-				r.setPuntos(0);
-
-			else	{
-
-				switch(posicion) {
-				case 0:
-					r.setPuntos(10);
-					break;
-				case 1:
-					r.setPuntos(8);
-					break;
-				case 2:
-					r.setPuntos(6);
-					break;
-				case 3:
-					r.setPuntos(4);
-					break;
-				case 4:
-					r.setPuntos(2);
-					break;
-				default:
+			try {
+				Ppuntos=listaPilotosProyecto.get(posicion);
+				r = Ppuntos.getResults(cp.getNombreCircuito());
+				if(r.getTiempo()<0)
 					r.setPuntos(0);
-					break;
+
+				else	{
+
+					switch(posicion) {
+					case 0:
+						r.setPuntos(10);
+						break;
+					case 1:
+						r.setPuntos(8);
+						break;
+					case 2:
+						r.setPuntos(6);
+						break;
+					case 3:
+						r.setPuntos(4);
+						break;
+					case 4:
+						r.setPuntos(2);
+						break;
+					default:
+						r.setPuntos(0);
+						break;
+					}
 				}
+				Ppuntos.setResults(r, cp.getNombreCircuito());
+			}catch(ArrayIndexOutOfBoundsException e) {
+				System.out.println("Excepcion array: "+e.getMessage());
 			}
-			Ppuntos.setResults(r, cp.getNombreCircuito());
 		}
 
 	}
@@ -242,7 +248,7 @@ public class OrganizacionProyecto {
 		System.out.println("****************************************************");
 
 		int escuderiasDescalificadas=0;
-		
+
 		for(int i=0; i<listaEscuderias.size(); i++) {
 			EscuderiaProyecto e = listaEscuderias.get(i);
 			listaPilotosProyecto.addAll(e.devolverPilotos());
@@ -256,74 +262,74 @@ public class OrganizacionProyecto {
 					+ "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 		}
 
-			listaPilotosProyecto.sort(new ComparadorPilotosNoDescalificados().reversed());
-			int posicion = 1;
+		listaPilotosProyecto.sort(new ComparadorPilotosNoDescalificados().reversed());
+		int posicion = 1;
 
-			for(int i=0; i<listaPilotosProyecto.size(); i++) {
-				Piloto p = listaPilotosProyecto.get(i);
-				if(!p.isDescalificado()) {
-					System.out.println("@@@ Posición("+ posicion +"): "+ p.getNombrePiloto() +" - Puntos totales: "+ p.puntosAcumulados() +" @@@");
-					posicion++;
-					for(CircuitoProyectoInterfaz c : listaCircuitos) {
+		for(int i=0; i<listaPilotosProyecto.size(); i++) {
+			Piloto p = listaPilotosProyecto.get(i);
+			if(!p.isDescalificado()) {
+				System.out.println("@@@ Posición("+ posicion +"): "+ p.getNombrePiloto() +" - Puntos totales: "+ p.puntosAcumulados() +" @@@");
+				posicion++;
+				for(CircuitoProyectoInterfaz c : listaCircuitos) {
 
-						if(p.getResults(c.getNombreCircuito()) != null)
-							System.out.println("Carrera("+c.getNombreCircuito()+") - Puntos:"+p.getResults(c.getNombreCircuito()).getPuntos()+" - Tiempo:"+p.getResults(c.getNombreCircuito()).getTiempo()+" minutos");
-					}
-					System.out.println("");
+					if(p.getResults(c.getNombreCircuito()) != null)
+						System.out.println("Carrera("+c.getNombreCircuito()+") - Puntos:"+p.getResults(c.getNombreCircuito()).getPuntos()+" - Tiempo:"+p.getResults(c.getNombreCircuito()).getTiempo()+" minutos");
 				}
+				System.out.println("");
 			}
+		}
 
-			System.out.println("****************************************************");
-			System.out.println("************** PILOTOS DESCALIFICADOS *************");
-			System.out.println("****************************************************");
+		System.out.println("****************************************************");
+		System.out.println("************** PILOTOS DESCALIFICADOS *************");
+		System.out.println("****************************************************");
 
-			for(int i=0; i<listaPilotosProyecto.size(); i++) {
-				Piloto p = listaPilotosProyecto.get(i);
-				if(p.isDescalificado()) {
-					System.out.println("--- Piloto Descalificado: "+p.getNombrePiloto()+" - Puntos Totales Anulados: "+p.puntosAcumulados()+" ---");
-					for(CircuitoProyectoInterfaz c : listaCircuitos) {
-						if(p.getResults(c.getNombreCircuito()) != null)
-							System.out.println("Carrera("+c.getNombreCircuito()+") - Puntos:"+p.getResults(c.getNombreCircuito()).getPuntos()+" - Tiempo:"+p.getResults(c.getNombreCircuito()).getTiempo()+" minutos");
-					}
-					System.out.println("");
+		for(int i=0; i<listaPilotosProyecto.size(); i++) {
+			Piloto p = listaPilotosProyecto.get(i);
+			if(p.isDescalificado()) {
+				System.out.println("--- Piloto Descalificado: "+p.getNombrePiloto()+" - Puntos Totales Anulados: "+p.puntosAcumulados()+" ---");
+				for(CircuitoProyectoInterfaz c : listaCircuitos) {
+					if(p.getResults(c.getNombreCircuito()) != null)
+						System.out.println("Carrera("+c.getNombreCircuito()+") - Puntos:"+p.getResults(c.getNombreCircuito()).getPuntos()+" - Tiempo:"+p.getResults(c.getNombreCircuito()).getTiempo()+" minutos");
 				}
+				System.out.println("");
 			}
-			System.out.println("****************************************************\n" + 
-					"******** CLASIFICACIÓN FINAL DE ESCUDERÍAS *********\n" + 
-					"****************************************************");
-			if(escuderiasDescalificadas == listaEscuderias.size()) {
-System.out.println("¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡\r\n"
-		+ "¡¡¡ Campeonato de escuderías queda desierto por haber sido descalificados todos los pilotos !!!\r\n"
-		+ "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+		}
+		System.out.println("****************************************************\n" + 
+				"******** CLASIFICACIÓN FINAL DE ESCUDERÍAS *********\n" + 
+				"****************************************************");
+		if(escuderiasDescalificadas == listaEscuderias.size()) {
+			System.out.println("¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡\r\n"
+					+ "¡¡¡ Campeonato de escuderías queda desierto por haber sido descalificados todos los pilotos !!!\r\n"
+					+ "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+		}
+
+		listaEscuderias.sort(new ComparadorEscuderiaFinal().reversed());
+		for(int i=0; i<listaEscuderias.size(); i++) {
+			EscuderiaProyecto e = listaEscuderias.get(i);
+			if(!e.isDescalificada()) {
+				System.out.println("@@@ Posición("+(i+1)+") "+ e.getNombreEscuderia() +" con "+e.puntosEscuderiaAcum()+" puntos @@@");
+				System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+				System.out.println("%%% "+e.getNombreEscuderia().toUpperCase()+" %%%");
+				System.out.println(e.toString());
+				System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
 			}
-			
-			listaEscuderias.sort(new ComparadorEscuderiaFinal().reversed());
-			for(int i=0; i<listaEscuderias.size(); i++) {
-				EscuderiaProyecto e = listaEscuderias.get(i);
-				if(!e.isDescalificada()) {
-					System.out.println("@@@ Posición("+(i+1)+") "+ e.getNombreEscuderia() +" con "+e.puntosEscuderiaAcum()+" puntos @@@");
-					System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
-					System.out.println("%%% "+e.getNombreEscuderia().toUpperCase()+" %%%");
-					System.out.println(e.toString());
-					System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
-				}
+		}
+		System.out.println("****************************************************\n" + 
+				"************ ESCUDERIAS DESCALIFICADAS *************\n" + 
+				"****************************************************");
+		for(int i=0; i<listaEscuderias.size(); i++) {
+			EscuderiaProyecto e = listaEscuderias.get(i);
+			if(e.isDescalificada()) {
+				System.out.println("¡¡¡ Escudería Descalificada: "+e.getNombreEscuderia()+" con "+e.puntosEscuderiaAcum()+" puntos !!!");
+				System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+				System.out.println("%%% "+e.getNombreEscuderia().toUpperCase()+" %%%");
+				System.out.println(e.toString());
+				System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
 			}
-			System.out.println("****************************************************\n" + 
-					"************ ESCUDERIAS DESCALIFICADAS *************\n" + 
-					"****************************************************");
-			for(int i=0; i<listaEscuderias.size(); i++) {
-				EscuderiaProyecto e = listaEscuderias.get(i);
-				if(e.isDescalificada()) {
-					System.out.println("¡¡¡ Escudería Descalificada: "+e.getNombreEscuderia()+" con "+e.puntosEscuderiaAcum()+" puntos !!!");
-					System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
-					System.out.println("%%% "+e.getNombreEscuderia().toUpperCase()+" %%%");
-					System.out.println(e.toString());
-					System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
-				}
-			}
+		}
 	}
 
-	public void campeonato(Comparator <Piloto> compaP) {
+	public void campeonato(Comparator <Piloto> compaP) throws IOException {
 		mostrarInicioCampeonato();
 		carrera(compaP);
 		mostrarFinCampeonato();

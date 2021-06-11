@@ -1,3 +1,5 @@
+import java.io.BufferedWriter;
+import java.io.IOException;
 import java.util.*;
 public abstract class Piloto {
 	private String nombrePiloto;
@@ -6,14 +8,16 @@ public abstract class Piloto {
 	private Concentracion concentracionPiloto;
 	private boolean descalificado;
 	private HashMap<String,Resultado> results;
+	
+	private BufferedWriter writer;
 
-	public Piloto(String nombrePiloto, InterfazCoches c, Concentracion concentracionPiloto) {
-		super();
+	public Piloto(String nombrePiloto, InterfazCoches c, Concentracion concentracionPiloto, BufferedWriter writer) {
 		this.nombrePiloto = nombrePiloto;
 		this.c = c;
 		this.concentracionPiloto = concentracionPiloto;
 		this.descalificado = false;
 		this.ultimoTiempo = -1;
+		this.writer = writer;
 		results=new HashMap<>();
 
 	}
@@ -92,8 +96,12 @@ public abstract class Piloto {
 		return totalesA;
 
 	}
-	
-	public void conducir(CircuitoProyectoInterfaz cir) {
+	/**
+	 * @throws IOException 
+	 * 
+	 * @param cir
+	 */
+	public void conducir(CircuitoProyectoInterfaz cir) throws IOException {
 		if(this.c!=null) {
 			Resultado r=new Resultado();
 			r.setCp(cir);
@@ -105,7 +113,6 @@ public abstract class Piloto {
 				if(c.getCombustibleAct() <= concentracionRestante) {
 					r.setTiempo(c.getCombustibleAct());
 					setUltimoTiempo(c.getCombustibleAct());
-					//c.reducirCombustible(c.getCombustibleAct());
 				}else {
 					r.setTiempo(concentracionRestante);
 					setUltimoTiempo(concentracionRestante);
@@ -115,9 +122,13 @@ public abstract class Piloto {
 				r.setTiempo(tiempoNeces);
 				setUltimoTiempo(tiempoNeces);
 			}
+			if(cir.getNombreCircuito() == null)
+				throw new IllegalArgumentException("Clave nula: nombreCircuito");
 			this.setResults(r, cir.getNombreCircuito());
 			if(this.getResults(cir.getNombreCircuito()).getTiempo() <= 0) {
 				if(this.getC().getCombustibleAct() <= 0) {
+					//TODO
+					writer.write("");
 					System.out.println("¡¡¡ El "+ this.getC().getNombreCoche() +" se quedó sin combustible a falta de "+ -this.getC().getCombustibleAct() +" minutos para terminar !!!");
 					System.out.println("¡¡¡ En el momento de quedarse sin combustible llevaba en carrera "+ (Math.round(tiempoNeces+this.getC().getCombustibleAct()*100d)/100d) +" minutos !!!");
 				}else {

@@ -1,9 +1,17 @@
-public class DatosCampeonatoCompleto {
+import java.io.BufferedWriter;
+import java.io.IOException;
 
-	public DatosCampeonatoCompleto(){     
+public class DatosCampeonatoCompleto {
+	private BufferedWriter writer;
+	
+	public DatosCampeonatoCompleto(BufferedWriter writer) throws IOException{     
+		this.writer = writer;
 		System.out.println("*********************************************************************************************************");
 		System.out.println("*****************ESTA SIMULACIÓN CONCLUYE NORMALMENTE COMPLETÁNDOSE TODAS LAS CARRERAS*******************");        
 		System.out.println("*********************************************************************************************************\n");
+		writer.write("*********************************************************************************************************\n"+
+				"*****************ESTA SIMULACIÓN CONCLUYE NORMALMENTE COMPLETÁNDOSE TODAS LAS CARRERAS*******************\n"+
+				"*********************************************************************************************************\n");
 		initData() ;  
 	}
 	private void initData() {
@@ -61,9 +69,9 @@ public class DatosCampeonatoCompleto {
 		eCitroen.meterCocheEscuderia(cocheRapC4);
 		eCitroen.meterCocheEscuderia(cocheNormC3);
 		//ARREGLAR EL RESTO
-		Piloto pExperimLoeb=  new PilotoExperimentado("Loeb", null, Concentracion.NORMAL);
-		Piloto pEstrellMakinen= new PilotoEstrella("Makinen", null, Concentracion.ZEN);
-		Piloto pNovatoAuriol=new PilotoNovato("Auriol", null, Concentracion.NORMAL);
+		Piloto pExperimLoeb=  new PilotoExperimentado("Loeb", null, Concentracion.NORMAL, writer);
+		Piloto pEstrellMakinen= new PilotoEstrella("Makinen", null, Concentracion.ZEN, writer);
+		Piloto pNovatoAuriol=new PilotoNovato("Auriol", null, Concentracion.NORMAL, writer);
 		eCitroen.meterPilotoEscuderia(pExperimLoeb);
 		eCitroen.meterPilotoEscuderia(pEstrellMakinen);
 		eCitroen.meterPilotoEscuderia(pNovatoAuriol);
@@ -75,9 +83,9 @@ public class DatosCampeonatoCompleto {
 		eSeat.meterCocheEscuderia(cocheRapAteca);
 		eSeat.meterCocheEscuderia(cocheNormArona);
 
-		Piloto pExperimOgier=  new PilotoExperimentado("Ogier", null, Concentracion.NORMAL);
-		Piloto pEstrellMcRae= new PilotoEstrella("McRae", null, Concentracion.CONCENTRADO);
-		Piloto Blomquist=new PilotoNovato("Blomquist", null, Concentracion.DESPISTADO); 
+		Piloto pExperimOgier=  new PilotoExperimentado("Ogier", null, Concentracion.NORMAL, writer);
+		Piloto pEstrellMcRae= new PilotoEstrella("McRae", null, Concentracion.CONCENTRADO, writer);
+		Piloto Blomquist=new PilotoNovato("Blomquist", null, Concentracion.DESPISTADO, writer); 
 		eSeat.meterPilotoEscuderia(pExperimOgier);
 		eSeat.meterPilotoEscuderia(pEstrellMcRae);
 		eSeat.meterPilotoEscuderia(Blomquist);
@@ -89,9 +97,9 @@ public class DatosCampeonatoCompleto {
 		ePeugeot.meterCocheEscuderia(cocheRap3008);
 		ePeugeot.meterCocheEscuderia(cocheNorm2008);
 
-		Piloto pExperimKankunnen=  new PilotoExperimentado("Kankunnen", null, Concentracion.CONCENTRADO);
-		Piloto pEstrellSainz= new PilotoEstrella("Sainz", null, Concentracion.ZEN);
-		Piloto pNovatSordo=new PilotoNovato("Sordo", null, Concentracion.DESPISTADO); 
+		Piloto pExperimKankunnen=  new PilotoExperimentado("Kankunnen", null, Concentracion.CONCENTRADO, writer);
+		Piloto pEstrellSainz= new PilotoEstrella("Sainz", null, Concentracion.ZEN, writer);
+		Piloto pNovatSordo=new PilotoNovato("Sordo", null, Concentracion.DESPISTADO, writer); 
 		ePeugeot.meterPilotoEscuderia(pExperimKankunnen);
 		ePeugeot.meterPilotoEscuderia(pEstrellSainz);
 		ePeugeot.meterPilotoEscuderia(pNovatSordo);

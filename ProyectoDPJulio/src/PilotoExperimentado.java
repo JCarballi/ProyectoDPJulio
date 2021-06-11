@@ -1,7 +1,9 @@
+import java.io.BufferedWriter;
+
 public class PilotoExperimentado extends Piloto{
 
-	public PilotoExperimentado(String nombrePiloto, InterfazCoches c, Concentracion concentracionPiloto){
-		super(nombrePiloto, c, concentracionPiloto);
+	public PilotoExperimentado(String nombrePiloto, InterfazCoches c, Concentracion concentracionPiloto, BufferedWriter writer){
+		super(nombrePiloto, c, concentracionPiloto, writer);
 	}
 
 	@Override
