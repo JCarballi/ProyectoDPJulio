@@ -1,14 +1,18 @@
+import java.io.BufferedWriter;
+import java.io.IOException;
+
 public class CocheRapidoProyecto extends CocheProyecto{
 	private double depositoN=80.0;
+	private BufferedWriter writer;
 	public  double getDepositoN() {
 		return depositoN;
 	}
-	public CocheRapidoProyecto(String nombreCoche,Velocidad v,Combustible c) {
-		super(nombreCoche,v,c);
+	public CocheRapidoProyecto(String nombreCoche,Velocidad v,Combustible c,BufferedWriter writer) {
+		super(nombreCoche,v,c,writer);
 	}
 
 	@Override
-	public double velocidadRealCoche(double destreza, CircuitoProyectoInterfaz c) {
+	public double velocidadRealCoche(double destreza, CircuitoProyectoInterfaz c) throws IOException {
 		double veloFinal=0;
 		double veloReal=super.velocidadRealCoche(destreza, c);
 		if(this.depositoN<=0) {
@@ -28,6 +32,7 @@ public class CocheRapidoProyecto extends CocheProyecto{
 			}
 
 			System.out.println("+++"+getNombreCoche()+" usa "+ diferencia +" de nitro para alcanzar "+ veloFinal +" km/hora y el nitro restante es "+ getDepositoN() +"+++");
+			writer.write("+++"+getNombreCoche()+" usa "+ diferencia +" de nitro para alcanzar "+ veloFinal +" km/hora y el nitro restante es "+ getDepositoN() +"+++\n");
 
 		}
 		return veloFinal; 

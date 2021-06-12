@@ -1,3 +1,5 @@
+import java.io.BufferedWriter;
+import java.io.IOException;
 import java.util.*;
 /**
  * Clase escuderia proyecto
@@ -7,12 +9,15 @@ public class EscuderiaProyecto {
 	private Set<Piloto> conjuntoPilotos;
 	private Set<InterfazCoches> conjuntoCoches;
 	private List<String> listaNombrePilotos;//creo que no seria necesaria
+	private BufferedWriter writer;
+
 	
-	public EscuderiaProyecto(String nombreEscuderia,Comparator<InterfazCoches>ccP,Comparator<Piloto> cpili) {
+	public EscuderiaProyecto(String nombreEscuderia,Comparator<InterfazCoches>ccP,Comparator<Piloto> cpili,BufferedWriter writer) {
 		this.nombreEscuderia = nombreEscuderia;
 		this.conjuntoPilotos=new TreeSet<Piloto>(cpili);
 		this.conjuntoCoches=new TreeSet<InterfazCoches>(ccP);//
 		this.listaNombrePilotos = new ArrayList<String>();
+		this.writer=writer;
 	}
 	public String getNombreEscuderia() {
 		return nombreEscuderia;
@@ -21,7 +26,7 @@ public class EscuderiaProyecto {
 		this.nombreEscuderia = nombreEscuderia;
 	}
 	public void inscribirEscuderia() {
-		OrganizacionProyecto.getInstance().inscribirEscuderia(this);
+		OrganizacionProyecto.getInstance(writer).inscribirEscuderia(this);
 	}
 	public void meterPilotoEscuderia(Piloto pp) {
 		conjuntoPilotos.add(pp);
@@ -48,7 +53,7 @@ public class EscuderiaProyecto {
 		}else
 			return false;
 	}
-	public Piloto enviarAOrganizacion() {
+	public Piloto enviarAOrganizacion() throws IOException {
 		Iterator<Piloto> itPil=conjuntoPilotos.iterator();
 		Piloto pi=null;
 		boolean salir=false;
@@ -74,6 +79,7 @@ public class EscuderiaProyecto {
 				} 
 				if(!hayCoche) {
 					System.out.println("¡¡¡ "+ pi.getNombrePiloto() +" NO ES ENVIADO A LA CARRERA porque su escudería("+this.nombreEscuderia+") no tiene más coches con combustible disponibles !!!");
+					writer.write("¡¡¡ "+ pi.getNombrePiloto() +" NO ES ENVIADO A LA CARRERA porque su escudería("+this.nombreEscuderia+") no tiene más coches con combustible disponibles !!!\n");
 					pi=null;
 				}else {
 					conjuntoCoches.remove(c);

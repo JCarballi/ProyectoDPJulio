@@ -1,8 +1,12 @@
+import java.io.BufferedWriter;
+import java.io.IOException;
+
 public class CocheProyecto implements InterfazCoches {
 	private String nombreCoche;
 	private Velocidad velocidadCoche;
 	private Combustible combustibleCoche;
 	protected double combustibleAct; //TODO preguntar si protected esta bien
+	private BufferedWriter writer;
 	
 	public double getCombustibleAct() {
 		return combustibleAct;
@@ -34,19 +38,21 @@ public class CocheProyecto implements InterfazCoches {
 		this.combustibleCoche = combustibleCoche;
 	}
 
-	public CocheProyecto(String nombreCoche, Velocidad velocidadCoche, Combustible combustibleCoche) {
+	public CocheProyecto(String nombreCoche, Velocidad velocidadCoche, Combustible combustibleCoche,BufferedWriter writer) {
 
 		this.nombreCoche = nombreCoche;
 		this.velocidadCoche = velocidadCoche;
 		this.combustibleCoche = combustibleCoche;
 		this.combustibleAct=this.combustibleCoche.getValor();
+		this.writer=writer;
 	}
 	public CocheProyecto() {
 		this.nombreCoche="";
 		this.velocidadCoche=null;
 		this.combustibleCoche =null;
+		this.writer=null;
 	}
-	public double velocidadRealCoche(double destreza, CircuitoProyectoInterfaz c) {
+	public double velocidadRealCoche(double destreza, CircuitoProyectoInterfaz c) throws IOException {
 		return Math.round(((this.velocidadCoche.getValor() *destreza) / c.getValorComplejidadCircuito())*100d)/100d;	
 
 	}
@@ -55,11 +61,17 @@ public class CocheProyecto implements InterfazCoches {
 	 * @param destreza es la destreza del piloto
 	 * @param c        Es el circuito actual en el que esta corriendo
 	 * @return tiempo finalizacion de la carrera
+	 * @throws IOException 
 	 * 
 	 */
-	public double tiempoNecesarioTerminar(double destreza, CircuitoProyectoInterfaz c) {
+	public double tiempoNecesarioTerminar(double destreza, CircuitoProyectoInterfaz c) throws IOException {
 		double veloReal=this.velocidadRealCoche(destreza, c);
 		System.out.println("Con estas condiciones es capaz de correr a "+ veloReal +"km/h");
+		
+			writer.write("Con estas condiciones es capaz de correr a "+ veloReal +"km/h\n");
+		
+			
+		
 		return  Math.round(((c.getValorDistanciaCircuito()/veloReal)*60)*100d)/100d;
 	}
 

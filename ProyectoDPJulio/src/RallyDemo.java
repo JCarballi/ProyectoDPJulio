@@ -22,7 +22,7 @@ public class RallyDemo {
 		//DatosCampeonatoPremioDesierto d3 = new DatosCampeonatoPremioDesierto(writer);
 
 		Comparator<Piloto> cPilotoCarrerasTotales = new ComparadorPilotoTotalCarreras();
-		OrganizacionProyecto.getInstance().campeonato(cPilotoCarrerasTotales);  
+		OrganizacionProyecto.getInstance(writer).campeonato(cPilotoCarrerasTotales);  
 		
 		writer.close();
 	}

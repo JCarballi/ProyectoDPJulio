@@ -16,59 +16,59 @@ public class DatosCampeonatoCompleto {
 	}
 	private void initData() {
 		ComparadorCircuitoDistancia cCd= new ComparadorCircuitoDistancia();
-		OrganizacionProyecto.getInstance(2, 3, cCd.reversed());
-		//arreglar todos
+		OrganizacionProyecto.getInstance(2, 3, cCd.reversed(), writer);
+	
 		CircuitoProyectoInterfaz  circProyectoPortugal=new CircuitoProyecto(Complejidad.MEDIA, Distancia.INTERMEDIA, "Portugal");
 		circProyectoPortugal= new CircuitoGravillaProyecto(circProyectoPortugal);
 		circProyectoPortugal=new CircuitoNocturnoProyecto(circProyectoPortugal);
-		OrganizacionProyecto.getInstance().inscribirCircuito(circProyectoPortugal);
+		OrganizacionProyecto.getInstance(writer).inscribirCircuito(circProyectoPortugal);
 
 		CircuitoProyectoInterfaz circCerdenia=new CircuitoProyecto(Complejidad.ALTA,Distancia.CORTA,"Cerdeña");
 		circCerdenia= new CircuitoGravillaProyecto(circCerdenia);
 		circCerdenia=new CircuitoMojadoProyecto(circCerdenia);
-		OrganizacionProyecto.getInstance().inscribirCircuito(circCerdenia);
+		OrganizacionProyecto.getInstance(writer).inscribirCircuito(circCerdenia);
 
 		CircuitoProyectoInterfaz circAustralia=new CircuitoProyecto(Complejidad.BAJA,Distancia.LARGA,"Australia");
 		circAustralia= new CircuitoGravillaProyecto(circAustralia);
-		OrganizacionProyecto.getInstance().inscribirCircuito(circAustralia);
+		OrganizacionProyecto.getInstance(writer).inscribirCircuito(circAustralia);
 
 		CircuitoProyectoInterfaz circCorcega=new CircuitoProyecto(Complejidad.MEDIA,Distancia.INTERMEDIA,"Córcega");
 		circCorcega= new CircuitoNocturnoProyecto(circCorcega);
 		circCorcega=new CircuitoGravillaProyecto(circCorcega);
-		OrganizacionProyecto.getInstance().inscribirCircuito(circCorcega);
+		OrganizacionProyecto.getInstance(writer).inscribirCircuito(circCorcega);
 
 		CircuitoProyectoInterfaz circFinlandia=new CircuitoProyecto(Complejidad.ALTA,Distancia.CORTA,"Finlandia");
 		circFinlandia= new CircuitoNocturnoProyecto(circFinlandia);
 		circFinlandia=new CircuitoFrioProyecto(circFinlandia);
 		circFinlandia=new CircuitoMojadoProyecto(circFinlandia);
-		OrganizacionProyecto.getInstance().inscribirCircuito(circFinlandia);
+		OrganizacionProyecto.getInstance(writer).inscribirCircuito(circFinlandia);
 
 		CircuitoProyectoInterfaz circAlemania=new CircuitoProyecto(Complejidad.MEDIA,Distancia.INTERMEDIA,"Alemania");
 		circAlemania= new CircuitoMojadoProyecto(circAlemania);
-		OrganizacionProyecto.getInstance().inscribirCircuito(circAlemania);
+		OrganizacionProyecto.getInstance(writer).inscribirCircuito(circAlemania);
 
 		CircuitoProyectoInterfaz circChile=new CircuitoProyecto(Complejidad.ALTA,Distancia.CORTA,"Chile");
 		circChile= new CircuitoGravillaProyecto(circChile);
-		OrganizacionProyecto.getInstance().inscribirCircuito(circChile);
+		OrganizacionProyecto.getInstance(writer).inscribirCircuito(circChile);
 
 		ComparadorPilotoPuntos compPuntos= new ComparadorPilotoPuntos();
 		ComparadorCocheParaInitData cInitCoch=new ComparadorCocheParaInitData();
-		EscuderiaProyecto ePeugeot =new EscuderiaProyecto("Peugeot",cInitCoch,compPuntos);
+		EscuderiaProyecto ePeugeot =new EscuderiaProyecto("Peugeot",cInitCoch,compPuntos, writer);
 		ePeugeot.inscribirEscuderia();
 
-		EscuderiaProyecto eCitroen=new EscuderiaProyecto("Citroen",cInitCoch.reversed(),compPuntos.reversed());
+		EscuderiaProyecto eCitroen=new EscuderiaProyecto("Citroen",cInitCoch.reversed(),compPuntos.reversed(), writer);
 		eCitroen.inscribirEscuderia();
 
-		EscuderiaProyecto eSeat=new EscuderiaProyecto("Seat",cInitCoch,compPuntos);
+		EscuderiaProyecto eSeat=new EscuderiaProyecto("Seat",cInitCoch,compPuntos, writer);
 		eSeat.inscribirEscuderia();
-		//ARREGALR EL RESTO
-		InterfazCoches cocheResisC5= new CocheResistenteProyecto("Citröen C5", Velocidad.RAPIDA, Combustible.ELEFANTE);
-		InterfazCoches cocheRapC4= new CocheRapidoProyecto("Citröen C4",Velocidad.RAPIDA,Combustible.ESCASO);
-		InterfazCoches cocheNormC3= new CocheProyecto("Citröen C3",Velocidad.RAPIDA,Combustible.ESCASO);
+	
+		InterfazCoches cocheResisC5= new CocheResistenteProyecto("Citröen C5", Velocidad.RAPIDA, Combustible.ELEFANTE, writer);
+		InterfazCoches cocheRapC4= new CocheRapidoProyecto("Citröen C4",Velocidad.RAPIDA,Combustible.ESCASO, writer);
+		InterfazCoches cocheNormC3= new CocheProyecto("Citröen C3",Velocidad.RAPIDA,Combustible.ESCASO, writer);
 		eCitroen.meterCocheEscuderia(cocheResisC5);
 		eCitroen.meterCocheEscuderia(cocheRapC4);
 		eCitroen.meterCocheEscuderia(cocheNormC3);
-		//ARREGLAR EL RESTO
+		
 		Piloto pExperimLoeb=  new PilotoExperimentado("Loeb", null, Concentracion.NORMAL, writer);
 		Piloto pEstrellMakinen= new PilotoEstrella("Makinen", null, Concentracion.ZEN, writer);
 		Piloto pNovatoAuriol=new PilotoNovato("Auriol", null, Concentracion.NORMAL, writer);
@@ -76,9 +76,9 @@ public class DatosCampeonatoCompleto {
 		eCitroen.meterPilotoEscuderia(pEstrellMakinen);
 		eCitroen.meterPilotoEscuderia(pNovatoAuriol);
 
-		InterfazCoches cocheResistTarraco= new CocheResistenteProyecto("Seat Tarraco", Velocidad.TORTUGA, Combustible.GENEROSO);
-		InterfazCoches cocheRapAteca= new CocheRapidoProyecto("Seat Ateca",Velocidad.GUEPARDO,Combustible.GENEROSO);
-		InterfazCoches cocheNormArona= new CocheProyecto("Seat Arona",Velocidad.RAPIDA,Combustible.ESCASO);
+		InterfazCoches cocheResistTarraco= new CocheResistenteProyecto("Seat Tarraco", Velocidad.TORTUGA, Combustible.GENEROSO, writer);
+		InterfazCoches cocheRapAteca= new CocheRapidoProyecto("Seat Ateca",Velocidad.GUEPARDO,Combustible.GENEROSO, writer);
+		InterfazCoches cocheNormArona= new CocheProyecto("Seat Arona",Velocidad.RAPIDA,Combustible.ESCASO, writer);
 		eSeat.meterCocheEscuderia(cocheResistTarraco);
 		eSeat.meterCocheEscuderia(cocheRapAteca);
 		eSeat.meterCocheEscuderia(cocheNormArona);
@@ -90,9 +90,9 @@ public class DatosCampeonatoCompleto {
 		eSeat.meterPilotoEscuderia(pEstrellMcRae);
 		eSeat.meterPilotoEscuderia(Blomquist);
 
-		InterfazCoches cocheResist5008= new CocheResistenteProyecto("Peugeot 5008", Velocidad.LENTA, Combustible.GENEROSO);
-		InterfazCoches cocheRap3008= new CocheRapidoProyecto("Peugeot 3008",Velocidad.GUEPARDO,Combustible.NORMAL);
-		InterfazCoches cocheNorm2008= new CocheProyecto("Peugeot 2008",Velocidad.NORMAL,Combustible.ESCASO);
+		InterfazCoches cocheResist5008= new CocheResistenteProyecto("Peugeot 5008", Velocidad.LENTA, Combustible.GENEROSO, writer);
+		InterfazCoches cocheRap3008= new CocheRapidoProyecto("Peugeot 3008",Velocidad.GUEPARDO,Combustible.NORMAL, writer);
+		InterfazCoches cocheNorm2008= new CocheProyecto("Peugeot 2008",Velocidad.NORMAL,Combustible.ESCASO, writer);
 		ePeugeot.meterCocheEscuderia(cocheResist5008);
 		ePeugeot.meterCocheEscuderia(cocheRap3008);
 		ePeugeot.meterCocheEscuderia(cocheNorm2008);

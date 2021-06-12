@@ -128,20 +128,29 @@ public abstract class Piloto {
 			if(this.getResults(cir.getNombreCircuito()).getTiempo() <= 0) {
 				if(this.getC().getCombustibleAct() <= 0) {
 					//TODO
-					writer.write("");
+					
 					System.out.println("¡¡¡ El "+ this.getC().getNombreCoche() +" se quedó sin combustible a falta de "+ -this.getC().getCombustibleAct() +" minutos para terminar !!!");
 					System.out.println("¡¡¡ En el momento de quedarse sin combustible llevaba en carrera "+ (Math.round(tiempoNeces+this.getC().getCombustibleAct()*100d)/100d) +" minutos !!!");
+					writer.write("¡¡¡ El "+ this.getC().getNombreCoche() +" se quedó sin combustible a falta de "+ -this.getC().getCombustibleAct() +" minutos para terminar !!! \n");
+					writer.write("¡¡¡ En el momento de quedarse sin combustible llevaba en carrera "+ (Math.round(tiempoNeces+this.getC().getCombustibleAct()*100d)/100d) +" minutos !!! \n");
+					
 				}else {
-					System.out.println("¡¡¡ "+this.getNombrePiloto()+" perdió la concentración a falta de "+ -concentracionRestante +" minutos para terminar !!!");
-					System.out.println("¡¡¡ En el momento del despiste llevaba en carrera "+ (Math.round((tiempoNeces+concentracionRestante)*100d)/100d)+" minutos !!!");
+					System.out.println("¡¡¡ "+this.getNombrePiloto()+" perdió la concentración a falta de "+ -concentracionRestante +" minutos para terminar !!! ");
+					System.out.println("¡¡¡ En el momento del despiste llevaba en carrera "+ (Math.round((tiempoNeces+concentracionRestante)*100d)/100d)+" minutos !!! ");
+					writer.write("¡¡¡ "+this.getNombrePiloto()+" perdió la concentración a falta de "+ -concentracionRestante +" minutos para terminar !!! \n");
+					writer.write("¡¡¡ En el momento del despiste llevaba en carrera "+ (Math.round((tiempoNeces+concentracionRestante)*100d)/100d)+" minutos !!! \n");
+					
 				}
 			}else {
 				System.out.println("+++ "+this.getNombrePiloto()+" termina la carrera en "+ tiempoNeces +"minutos +++");
+				writer.write("+++ "+this.getNombrePiloto()+" termina la carrera en "+ tiempoNeces +"minutos +++ \n");
 
 			}
 			System.out.println("+++ El combustible del "+ this.getC().getNombreCoche() +" tras la carrera es "+ this.getC().getCombustibleAct() +" +++");
+			writer.write("+++ El combustible del "+ this.getC().getNombreCoche() +" tras la carrera es "+ this.getC().getCombustibleAct() +" +++ \n");
 
 			System.out.println("@@@");
+			writer.write("@@@ \n");
 
 		}
 	}
