@@ -2,7 +2,6 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 
 public class CocheResistenteProyecto extends CocheProyecto {
-	private  BufferedWriter writer;
 	private double reservaExtra=100.0;
 
 	

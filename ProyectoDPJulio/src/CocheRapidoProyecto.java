@@ -3,7 +3,6 @@ import java.io.IOException;
 
 public class CocheRapidoProyecto extends CocheProyecto{
 	private double depositoN=80.0;
-	private BufferedWriter writer;
 	public  double getDepositoN() {
 		return depositoN;
 	}

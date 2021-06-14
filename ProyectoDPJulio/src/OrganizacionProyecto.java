@@ -355,9 +355,10 @@ public class OrganizacionProyecto {
 				posicion++;
 				for(CircuitoProyectoInterfaz c : listaCircuitos) {
 
-					if(p.getResults(c.getNombreCircuito()) != null)
+					if(p.getResults(c.getNombreCircuito()) != null) {
 						System.out.println("Carrera("+c.getNombreCircuito()+") - Puntos:"+p.getResults(c.getNombreCircuito()).getPuntos()+" - Tiempo:"+p.getResults(c.getNombreCircuito()).getTiempo()+" minutos");
-					writer.write("Carrera("+c.getNombreCircuito()+") - Puntos:"+p.getResults(c.getNombreCircuito()).getPuntos()+" - Tiempo:"+p.getResults(c.getNombreCircuito()).getTiempo()+" minutos\n");
+						writer.write("Carrera("+c.getNombreCircuito()+") - Puntos:"+p.getResults(c.getNombreCircuito()).getPuntos()+" - Tiempo:"+p.getResults(c.getNombreCircuito()).getTiempo()+" minutos\n");
+					}
 				}
 				System.out.println("");
 				writer.write("\n");
@@ -383,9 +384,10 @@ public class OrganizacionProyecto {
 				System.out.println("--- Piloto Descalificado: "+p.getNombrePiloto()+" - Puntos Totales Anulados: "+p.puntosAcumulados()+" ---");
 				writer.write("--- Piloto Descalificado: "+p.getNombrePiloto()+" - Puntos Totales Anulados: "+p.puntosAcumulados()+" ---\n");
 				for(CircuitoProyectoInterfaz c : listaCircuitos) {
-					if(p.getResults(c.getNombreCircuito()) != null)
+					if(p.getResults(c.getNombreCircuito()) != null) {
 						System.out.println("Carrera("+c.getNombreCircuito()+") - Puntos:"+p.getResults(c.getNombreCircuito()).getPuntos()+" - Tiempo:"+p.getResults(c.getNombreCircuito()).getTiempo()+" minutos");
-					writer.write("Carrera("+c.getNombreCircuito()+") - Puntos:"+p.getResults(c.getNombreCircuito()).getPuntos()+" - Tiempo:"+p.getResults(c.getNombreCircuito()).getTiempo()+" minutos\n");
+						writer.write("Carrera("+c.getNombreCircuito()+") - Puntos:"+p.getResults(c.getNombreCircuito()).getPuntos()+" - Tiempo:"+p.getResults(c.getNombreCircuito()).getTiempo()+" minutos\n");
+					}
 				}
 				System.out.println("");
 				writer.write("\n");

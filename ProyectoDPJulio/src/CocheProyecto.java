@@ -6,7 +6,7 @@ public class CocheProyecto implements InterfazCoches {
 	private Velocidad velocidadCoche;
 	private Combustible combustibleCoche;
 	protected double combustibleAct; //TODO preguntar si protected esta bien
-	private BufferedWriter writer;
+	protected BufferedWriter writer;
 	
 	public double getCombustibleAct() {
 		return combustibleAct;
