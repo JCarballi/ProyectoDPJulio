@@ -62,15 +62,15 @@ Con estas condiciones es capaz de correr a 153.33km/h
 @@@ 
 @@@ Piloto 2 de 6
 <piloto:Kankunnen> <tipo:PilotoExperimentado> <dest:0.9> <conc:CONCENTRADO(110.0)> <descalificado:false> con <coche: Peugeot 3008> <tipo:CocheRapidoProyecto> <vel_teó: GUEPARDO(240.0)> <comb: NORMAL(440.0)(actual: 440.0)> <nitroPendiente: 80.0>
+Con estas condiciones es capaz de correr a 205.71km/h
 +++Peugeot 3008 usa 41.14 de nitro para alcanzar 246.85 km/hora y el nitro restante es 38.86+++
-Con estas condiciones es capaz de correr a 246.85km/h
 +++ Kankunnen termina la carrera en 69.27minutos +++ 
 +++ El combustible del Peugeot 3008 tras la carrera es 370.73 +++ 
 @@@ 
 @@@ Piloto 3 de 6
 <piloto:Loeb> <tipo:PilotoExperimentado> <dest:0.82> <conc:NORMAL(100.0)> <descalificado:false> con <coche: Citröen C4> <tipo:CocheRapidoProyecto> <vel_teó: RAPIDA(230.0)> <comb: ESCASO(350.0)(actual: 350.0)> <nitroPendiente: 80.0>
+Con estas condiciones es capaz de correr a 179.62km/h
 +++Citröen C4 usa 35.92 de nitro para alcanzar 215.54 km/hora y el nitro restante es 44.08+++
-Con estas condiciones es capaz de correr a 215.54km/h
 +++ Loeb termina la carrera en 79.34minutos +++ 
 +++ El combustible del Citröen C4 tras la carrera es 270.66 +++ 
 @@@ 
@@ -82,8 +82,8 @@ Con estas condiciones es capaz de correr a 219.05km/h
 @@@ 
 @@@ Piloto 5 de 6
 <piloto:Ogier> <tipo:PilotoExperimentado> <dest:0.82> <conc:NORMAL(100.0)> <descalificado:false> con <coche: Seat Ateca> <tipo:CocheRapidoProyecto> <vel_teó: GUEPARDO(240.0)> <comb: GENEROSO(460.0)(actual: 460.0)> <nitroPendiente: 80.0>
+Con estas condiciones es capaz de correr a 187.43km/h
 +++Seat Ateca usa 37.49 de nitro para alcanzar 224.92 km/hora y el nitro restante es 42.51+++
-Con estas condiciones es capaz de correr a 224.92km/h
 +++ Ogier termina la carrera en 76.03minutos +++ 
 +++ El combustible del Seat Ateca tras la carrera es 383.97 +++ 
 @@@ 
@@ -129,15 +129,15 @@ Con estas condiciones es capaz de correr a 101.9km/h
 @@@ 
 @@@ Piloto 2 de 6
 <piloto:McRae> <tipo:PilotoEstrella> <dest:0.93> <conc:CONCENTRADO(110.0)> <descalificado:false> con <coche: Seat Ateca> <tipo:CocheRapidoProyecto> <vel_teó: GUEPARDO(240.0)> <comb: GENEROSO(460.0)(actual: 383.97)> <nitroPendiente: 42.51>
+Con estas condiciones es capaz de correr a 141.27km/h
 +++Seat Ateca usa 28.25 de nitro para alcanzar 169.52 km/hora y el nitro restante es 14.26+++
-Con estas condiciones es capaz de correr a 169.52km/h
 +++ McRae termina la carrera en 84.06minutos +++ 
 +++ El combustible del Seat Ateca tras la carrera es 299.91 +++ 
 @@@ 
 @@@ Piloto 3 de 6
 <piloto:Sainz> <tipo:PilotoEstrella> <dest:1.0> <conc:ZEN(120.0)> <descalificado:false> con <coche: Peugeot 3008> <tipo:CocheRapidoProyecto> <vel_teó: GUEPARDO(240.0)> <comb: NORMAL(440.0)(actual: 370.73)> <nitroPendiente: 38.86>
+Con estas condiciones es capaz de correr a 151.9km/h
 +++Peugeot 3008 usa 30.38 de nitro para alcanzar 182.28 km/hora y el nitro restante es 8.48+++
-Con estas condiciones es capaz de correr a 182.28km/h
 +++ Sainz termina la carrera en 78.18minutos +++ 
 +++ El combustible del Peugeot 3008 tras la carrera es 292.55 +++ 
 @@@ 
@@ -206,22 +206,22 @@ Con estas condiciones es capaz de correr a 106.94km/h
 ¡¡¡ Sordo DESCALIFICADO del campeonato por alcanzar el límite de abandonos(3) !!!
 @@@ Piloto 3 de 6
 <piloto:Loeb> <tipo:PilotoExperimentado> <dest:0.82> <conc:NORMAL(100.0)> <descalificado:false> con <coche: Citröen C4> <tipo:CocheRapidoProyecto> <vel_teó: RAPIDA(230.0)> <comb: ESCASO(350.0)(actual: 270.66)> <nitroPendiente: 44.08>
+Con estas condiciones es capaz de correr a 130.97km/h
 +++Citröen C4 usa 26.19 de nitro para alcanzar 157.16 km/hora y el nitro restante es 17.89+++
-Con estas condiciones es capaz de correr a 157.16km/h
 +++ Loeb termina la carrera en 89.24minutos +++ 
 +++ El combustible del Citröen C4 tras la carrera es 181.42 +++ 
 @@@ 
 @@@ Piloto 4 de 6
 <piloto:Ogier> <tipo:PilotoExperimentado> <dest:0.82> <conc:NORMAL(100.0)> <descalificado:false> con <coche: Seat Ateca> <tipo:CocheRapidoProyecto> <vel_teó: GUEPARDO(240.0)> <comb: GENEROSO(460.0)(actual: 299.91)> <nitroPendiente: 14.26>
+Con estas condiciones es capaz de correr a 136.67km/h
 +++Seat Ateca usa 27.33 de nitro para alcanzar 150.93 km/hora y el nitro restante es 0.0+++
-Con estas condiciones es capaz de correr a 150.93km/h
 +++ Ogier termina la carrera en 92.92minutos +++ 
 +++ El combustible del Seat Ateca tras la carrera es 206.99 +++ 
 @@@ 
 @@@ Piloto 5 de 6
 <piloto:Kankunnen> <tipo:PilotoExperimentado> <dest:0.9> <conc:CONCENTRADO(110.0)> <descalificado:false> con <coche: Peugeot 3008> <tipo:CocheRapidoProyecto> <vel_teó: GUEPARDO(240.0)> <comb: NORMAL(440.0)(actual: 292.55)> <nitroPendiente: 8.48>
+Con estas condiciones es capaz de correr a 150.0km/h
 +++Peugeot 3008 usa 30.0 de nitro para alcanzar 158.48 km/hora y el nitro restante es 0.0+++
-Con estas condiciones es capaz de correr a 158.48km/h
 +++ Kankunnen termina la carrera en 88.5minutos +++ 
 +++ El combustible del Peugeot 3008 tras la carrera es 204.05 +++ 
 @@@ 
@@ -360,8 +360,8 @@ Con estas condiciones es capaz de correr a 119.62km/h
 @@@ 
 @@@ Piloto 6 de 6
 <piloto:Makinen> <tipo:PilotoEstrella> <dest:1.0> <conc:ZEN(120.0)> <descalificado:false> con <coche: Citröen C4> <tipo:CocheRapidoProyecto> <vel_teó: RAPIDA(230.0)> <comb: ESCASO(350.0)(actual: 181.42)> <nitroPendiente: 17.89>
+Con estas condiciones es capaz de correr a 145.57km/h
 +++Citröen C4 usa 29.11 de nitro para alcanzar 163.46 km/hora y el nitro restante es 0.0+++
-Con estas condiciones es capaz de correr a 163.46km/h
 +++ Makinen termina la carrera en 76.72minutos +++ 
 +++ El combustible del Citröen C4 tras la carrera es 104.7 +++ 
 @@@ 

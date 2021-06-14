@@ -53,7 +53,12 @@ public class CocheProyecto implements InterfazCoches {
 		this.writer=null;
 	}
 	public double velocidadRealCoche(double destreza, CircuitoProyectoInterfaz c) throws IOException {
-		return Math.round(((this.velocidadCoche.getValor() *destreza) / c.getValorComplejidadCircuito())*100d)/100d;	
+		double veloReal = Math.round(((this.velocidadCoche.getValor() *destreza) / c.getValorComplejidadCircuito())*100d)/100d;	
+		
+		System.out.println("Con estas condiciones es capaz de correr a "+ veloReal +"km/h");
+		writer.write("Con estas condiciones es capaz de correr a "+ veloReal +"km/h\n");
+		
+		return veloReal;	
 
 	}
 	/**
@@ -66,12 +71,7 @@ public class CocheProyecto implements InterfazCoches {
 	 */
 	public double tiempoNecesarioTerminar(double destreza, CircuitoProyectoInterfaz c) throws IOException {
 		double veloReal=this.velocidadRealCoche(destreza, c);
-		System.out.println("Con estas condiciones es capaz de correr a "+ veloReal +"km/h");
-		
-			writer.write("Con estas condiciones es capaz de correr a "+ veloReal +"km/h\n");
-		
-			
-		
+					
 		return  Math.round(((c.getValorDistanciaCircuito()/veloReal)*60)*100d)/100d;
 	}
 
