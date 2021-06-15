@@ -2,10 +2,10 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 
 public class CocheResistenteProyecto extends CocheProyecto {
-	private double reservaExtra=100.0;
+	protected double reservaExtra=100.0;
 
 	
-	public double getReservaExtra() {
+	protected double getReservaExtra() {
 		return reservaExtra;
 	}
 	public CocheResistenteProyecto(String nombreCoche,Velocidad v,Combustible c,BufferedWriter writer) {

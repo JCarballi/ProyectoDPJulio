@@ -18,4 +18,7 @@ public class ComparadorPilotoUltimoTiempoCarrera implements Comparator<Piloto> {
 		else
 			return 1;
 	}	
+
+	/*TODO APUNTAR que es un comparador para la salida porque tenemos descalificados y no descalificados en la misma estructura
+	 * */
 }

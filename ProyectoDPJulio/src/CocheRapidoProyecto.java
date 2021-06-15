@@ -2,8 +2,8 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 
 public class CocheRapidoProyecto extends CocheProyecto{
-	private double depositoN=80.0;
-	public  double getDepositoN() {
+	protected double depositoN=80.0;
+	protected  double getDepositoN() {
 		return depositoN;
 	}
 	public CocheRapidoProyecto(String nombreCoche,Velocidad v,Combustible c,BufferedWriter writer) {

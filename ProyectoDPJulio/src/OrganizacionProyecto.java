@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 /**
@@ -34,6 +35,17 @@ public class OrganizacionProyecto {
 		this.limitePilotos=pilotosLimite;
 		this.writer=writer;
 		this.cC=cC;
+	}
+	
+	private OrganizacionProyecto(int pilotosLimite,int abandonosLimite,  Comparator<CircuitoProyectoInterfaz> cC) throws IOException {
+		this.pilotoEscuderia = new HashMap<String, Piloto>();
+		this.listaCircuitos = new ArrayList<CircuitoProyectoInterfaz>();
+		this.listaPilotosProyecto=new ArrayList<Piloto>();
+		this.listaEscuderias= new ArrayList<EscuderiaProyecto>();
+		this.limiteAbandonos=abandonosLimite;
+		this.limitePilotos=pilotosLimite;
+		this.cC=cC;
+		this.writer=new BufferedWriter(new FileWriter("errorSalida.log"));
 	}
 
 	/**
@@ -257,9 +269,9 @@ public class OrganizacionProyecto {
 		}
 		return op;
 	}
-	public static OrganizacionProyecto getInstance(BufferedWriter writer) {
+	public static OrganizacionProyecto getInstance() {
 		if(op == null) {
-			return op = new OrganizacionProyecto(2, 3, new ComparadorCircuitoDistancia(),writer);
+			return op = new OrganizacionProyecto(2, 3, new ComparadorCircuitoDistancia(),null);
 		}
 		return op;
 	}

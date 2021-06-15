@@ -26,7 +26,7 @@ public class EscuderiaProyecto {
 		this.nombreEscuderia = nombreEscuderia;
 	}
 	public void inscribirEscuderia() {
-		OrganizacionProyecto.getInstance(writer).inscribirEscuderia(this);
+		OrganizacionProyecto.getInstance().inscribirEscuderia(this);
 	}
 	public void meterPilotoEscuderia(Piloto pp) {
 		conjuntoPilotos.add(pp);
@@ -92,16 +92,7 @@ public class EscuderiaProyecto {
 		}
 		return pi;
 	}
-		public void setOrdenacionEstrategiaPiloto(Comparator<Piloto> epil) {
-		Set<Piloto> aux = new TreeSet<>(epil);
-		aux.addAll(conjuntoPilotos);
-		this.conjuntoPilotos = aux;
-	}
-	public void setOrdenacionEstrategiaCoche(Comparator<InterfazCoches> eCoch) {
-		Set<InterfazCoches> aux = new TreeSet<>(eCoch);
-		aux.addAll(conjuntoCoches);
-		this.conjuntoCoches = aux;
-	}
+	
 	public List<Piloto> devolverPilotos() {
 		List<Piloto> arrayPilotos = new ArrayList<Piloto>(); 
 		arrayPilotos.addAll(conjuntoPilotos);

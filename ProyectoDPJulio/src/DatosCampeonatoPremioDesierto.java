@@ -24,35 +24,35 @@ public class DatosCampeonatoPremioDesierto {
 		CircuitoProyectoInterfaz circProyectoPortugal=new CircuitoProyecto(Complejidad.MEDIA, Distancia.INTERMEDIA, "Portugal");
 		circProyectoPortugal= new CircuitoGravillaProyecto(circProyectoPortugal);
 		circProyectoPortugal=new CircuitoNocturnoProyecto(circProyectoPortugal);
-		OrganizacionProyecto.getInstance(writer).inscribirCircuito(circProyectoPortugal);
+		OrganizacionProyecto.getInstance().inscribirCircuito(circProyectoPortugal);
 
 		CircuitoProyectoInterfaz circCerdenia=new CircuitoProyecto(Complejidad.ALTA,Distancia.CORTA,"Cerdeña");
 		circCerdenia= new CircuitoGravillaProyecto(circCerdenia);
 		circCerdenia=new CircuitoMojadoProyecto(circCerdenia);
-		OrganizacionProyecto.getInstance(writer).inscribirCircuito(circCerdenia);
+		OrganizacionProyecto.getInstance().inscribirCircuito(circCerdenia);
 
 		CircuitoProyectoInterfaz circAustralia=new CircuitoProyecto(Complejidad.BAJA,Distancia.LARGA,"Australia");
 		circAustralia= new CircuitoGravillaProyecto(circAustralia);
-		OrganizacionProyecto.getInstance(writer).inscribirCircuito(circAustralia);
+		OrganizacionProyecto.getInstance().inscribirCircuito(circAustralia);
 
 		CircuitoProyectoInterfaz circCorcega=new CircuitoProyecto(Complejidad.MEDIA,Distancia.INTERMEDIA,"Córcega");
 		circCorcega= new CircuitoNocturnoProyecto(circCorcega);
 		circCorcega=new CircuitoGravillaProyecto(circCorcega);
-		OrganizacionProyecto.getInstance(writer).inscribirCircuito( circCorcega);
+		OrganizacionProyecto.getInstance().inscribirCircuito( circCorcega);
 
 		CircuitoProyectoInterfaz circFinlandia=new CircuitoProyecto(Complejidad.ALTA,Distancia.CORTA,"Finlandia");
 		circFinlandia= new CircuitoNocturnoProyecto(circFinlandia);
 		circFinlandia=new CircuitoFrioProyecto(circFinlandia);
 		circFinlandia=new CircuitoMojadoProyecto(circFinlandia);
-		OrganizacionProyecto.getInstance(writer).inscribirCircuito(circFinlandia);
+		OrganizacionProyecto.getInstance().inscribirCircuito(circFinlandia);
 
 		CircuitoProyectoInterfaz circAlemania=new CircuitoProyecto(Complejidad.MEDIA,Distancia.INTERMEDIA,"Alemania");
 		circAlemania= new CircuitoMojadoProyecto(circAlemania);
-		OrganizacionProyecto.getInstance(writer).inscribirCircuito(circAlemania);
+		OrganizacionProyecto.getInstance().inscribirCircuito(circAlemania);
 
 		CircuitoProyectoInterfaz circChile=new CircuitoProyecto(Complejidad.ALTA,Distancia.CORTA,"Chile");
 		circChile= new CircuitoGravillaProyecto(circChile);
-		OrganizacionProyecto.getInstance(writer).inscribirCircuito(circChile);
+		OrganizacionProyecto.getInstance().inscribirCircuito(circChile);
 
 		ComparadorPilotoPuntos compPuntos= new ComparadorPilotoPuntos();
 		ComparadorCocheParaInitData cInitCoch=new ComparadorCocheParaInitData();
