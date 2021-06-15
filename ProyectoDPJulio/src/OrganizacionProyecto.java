@@ -95,7 +95,11 @@ public class OrganizacionProyecto {
 					writer.write("@@@ Piloto "+ (j+1) +" de "+ this.listaPilotosProyecto.size()+"\n");
 					writer.write(p.toString()+" con "+p.getC().toString()+"\n");
 
-					p.conducir(circui);
+					try{
+						p.conducir(circui);
+					}catch (IllegalArgumentException e) {
+						System.out.println(e.getMessage());
+					}
 					Resultado r=p.getResults(circui.getNombreCircuito());
 					if(r.getTiempo()<0) {
 						if(p.totalAbandonadas()==this.limiteAbandonos) {

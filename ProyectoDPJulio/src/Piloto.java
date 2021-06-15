@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.util.*;
 public abstract class Piloto {
 	private String nombrePiloto;
-	private double ultimoTiempo; //TODO Para ordenar usando el ultimo tiempo sin nombreCircuito
+	private double ultimoTiempo;
 	InterfazCoches c;
 	private Concentracion concentracionPiloto;
 	private boolean descalificado;
@@ -127,7 +127,6 @@ public abstract class Piloto {
 			this.setResults(r, cir.getNombreCircuito());
 			if(this.getResults(cir.getNombreCircuito()).getTiempo() <= 0) {
 				if(this.getC().getCombustibleAct() <= 0) {
-					//TODO
 					
 					System.out.println("¡¡¡ El "+ this.getC().getNombreCoche() +" se quedó sin combustible a falta de "+ -this.getC().getCombustibleAct() +" minutos para terminar !!!");
 					System.out.println("¡¡¡ En el momento de quedarse sin combustible llevaba en carrera "+ (Math.round(tiempoNeces+this.getC().getCombustibleAct()*100d)/100d) +" minutos !!!");

@@ -5,7 +5,7 @@ public class CocheProyecto implements InterfazCoches {
 	private String nombreCoche;
 	private Velocidad velocidadCoche;
 	private Combustible combustibleCoche;
-	protected double combustibleAct; //TODO preguntar si protected esta bien
+	protected double combustibleAct; 
 	protected BufferedWriter writer;
 	
 	public double getCombustibleAct() {
