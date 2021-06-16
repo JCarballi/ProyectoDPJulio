@@ -405,7 +405,7 @@ public class OrganizacionProyecto {
 			
 		}
         /*ordenamos los pilotos de manera descendente según el comparador*/
-		listaPilotosProyecto.sort(new ComparadorPilotosNoDescalificados().reversed());
+		listaPilotosProyecto.sort(new ComparadorPilotoTotalCarreras().reversed());
 		int posicion = 1;
 
 		for(int i=0; i<listaPilotosProyecto.size(); i++) {

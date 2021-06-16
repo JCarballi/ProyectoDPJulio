@@ -14,7 +14,7 @@ public class EscuderiaProyecto {
 	private List<String> listaNombrePilotos;/*para obtener el nombre de todos los pilotos de cada escuderia,ya que con el conjunto de pilotos los borramos despues*/
 	private BufferedWriter writer;
 
-	
+
 	public EscuderiaProyecto(String nombreEscuderia,Comparator<InterfazCoches>ccP,Comparator<Piloto> cpili,BufferedWriter writer) {
 		this.nombreEscuderia = nombreEscuderia;
 		this.conjuntoPilotos=new TreeSet<Piloto>(cpili);
@@ -85,19 +85,19 @@ public class EscuderiaProyecto {
 		Piloto pi=null;
 		boolean salir=false;
 		boolean hayCoche=false;
-		
+
 		while(itPil.hasNext()&&!salir) {/*cuando encontremos el primer piloto no descalificado,dejamos de iterar y salimos*/
 			pi=itPil.next();
 			if(!pi.isDescalificado()) {
 				salir=true;
 			}
 		}
-		
+
 		if(pi!=null) {/*si ese piloto no es nulo,debemos asignarle el coche con el que va a correr*/
 			if(!pi.isDescalificado()) {
 				Iterator<InterfazCoches> itCoc=conjuntoCoches.iterator();
 				InterfazCoches c=null;
-					while (itCoc.hasNext() && !hayCoche) {/*mientras el piloto no tenga coche,iteramos*/
+				while (itCoc.hasNext() && !hayCoche) {/*mientras el piloto no tenga coche,iteramos*/
 					c = itCoc.next();
 					if(c.getCombustibleAct()>0) {/*si encontramos un coche con combustible para el piloto,se lo asignamos y salimos del bucle*/
 						pi.setC(c);
@@ -145,6 +145,27 @@ public class EscuderiaProyecto {
 		else 
 			return false;
 	}
+
+	/**
+	 * Método que cambia la ordenación del conjuntoPilotos
+	 * @param epil comparador por el que se va a ordenar a partir de ahora conjuntoPilotos
+	 */
+	public void setOrdenacionEstrategiaPiloto(Comparator<Piloto> epil) {
+		Set<Piloto> aux = new TreeSet<>(epil);
+		aux.addAll(conjuntoPilotos);
+		this.conjuntoPilotos = aux;
+	}
+	
+	/**
+	 * Método que cambia la ordenación del conjuntoCoches
+	 * @param eCoch comparador por el que se va a ordenar a partir de ahora conjuntoCoches
+	 */
+	public void setOrdenacionEstrategiaCoche(Comparator<InterfazCoches> eCoch) {
+		Set<InterfazCoches> aux = new TreeSet<>(eCoch);
+		aux.addAll(conjuntoCoches);
+		this.conjuntoCoches = aux;
+	}
+
 	/**
 	 * Método que devueleve el total de carreras terminadas entre todos los pilotos de esa escuderia
 	 *@return totalCarreras
