@@ -1,3 +1,9 @@
+/**
+ *Clase Complejidad
+ *Tipo enumerado con los distintos valores de complejidad que puede tener un circuito.
+ *@author Javier Santamaría Caballero
+ *@author Juan José Carballo Pacheco
+ */
 public enum Complejidad {
 	BAJA("BAJA",1.0),
 	MEDIA("MEDIA",1.25),

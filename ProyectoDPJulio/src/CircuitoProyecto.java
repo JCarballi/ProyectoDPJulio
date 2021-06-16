@@ -1,3 +1,9 @@
+/**
+ * Clase CircuitoProyecto
+ * Clase que implementa la interfaz del decorator.Se trata de los circuitos normales sin complicaciones.
+ * @author Javier Santamaría Caballero
+ * @author Juan José Carballo Pacheco
+ */
 public class CircuitoProyecto implements CircuitoProyectoInterfaz {
 	private Complejidad complejidadCircuito;
 	private Distancia   distanciaCircuito;
@@ -37,6 +43,10 @@ public class CircuitoProyecto implements CircuitoProyectoInterfaz {
 	public double getValorComplejidadCircuito() {
 		return this.complejidadCircuito.getValor();
 	}
+	/**
+	 *Método para mostrar las complicaciones en un circuito normal(ninguna)
+	 * @return  ""
+	 */
 	public String getComplicaciones(){
 		return "";
 	}

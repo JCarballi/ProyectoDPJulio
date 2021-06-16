@@ -1,16 +1,26 @@
 import java.io.BufferedWriter;
 import java.io.IOException;
-
+/**
+ * Clase CocheProyecto
+ * Clase padre de la herencia  para los coches que a su vez representa a los coches normales.
+ * @author Javier Santamaría Caballero
+ * @author Juan José Carballo Pacheco
+ */
+/*En este caso utilizamos herencia porque cada subclase implementa funcionalidades diferentes y no se aplica strategy porque no se usa para evitar duplicidad de codigo*/
 public class CocheProyecto implements InterfazCoches {
 	private String nombreCoche;
 	private Velocidad velocidadCoche;
 	private Combustible combustibleCoche;
-	protected double combustibleAct; 
+	protected double combustibleAct; /*protegido  para poder usarlo en los hijos de la herencia*/
 	protected BufferedWriter writer;
 	
 	public double getCombustibleAct() {
 		return combustibleAct;
 	}
+	/**
+	 *Método para reducir el combustible de un coche de manera normal segun el tiempo empleado en la carrera.
+	 *@param combustibleAct combustible a reducir segun el tiempo empleado en esa carrera.
+	 */
 	public void reducirCombustible(double combustibleAct) {
 		this.combustibleAct = Math.round((this.combustibleAct - combustibleAct)*100d)/100d;
 	}
@@ -52,6 +62,13 @@ public class CocheProyecto implements InterfazCoches {
 		this.combustibleCoche =null;
 		this.writer=null;
 	}
+	/**
+	 *Método para calcular la velocidad real del coche de manera normal aplicando la fórmula.
+	 *@param destreza del piloto
+	 *@param c circuito usado
+	 *@throws IOException
+	 *@return veloReal
+	 */
 	public double velocidadRealCoche(double destreza, CircuitoProyectoInterfaz c) throws IOException {
 		double veloReal = Math.round(((this.velocidadCoche.getValor() *destreza) / c.getValorComplejidadCircuito())*100d)/100d;	
 		
@@ -102,7 +119,7 @@ public class CocheProyecto implements InterfazCoches {
 		return true;
 	}
 
-	@Override
+	@Override/*Dependiendo de la clase en la que nos encontremos dela herencialos datos del toString variaran(el tipo de coche)*/
 	public String toString() {
 		return "<coche: "+getNombreCoche()+"> <tipo:"+getClass().getName()+"> <vel_teó: "+getVelocidadCoche().toString()+"> <comb: "+getCombustibleCoche().toString()+"(actual: "+getCombustibleAct()+")>";
 

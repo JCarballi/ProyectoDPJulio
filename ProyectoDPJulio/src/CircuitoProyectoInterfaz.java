@@ -1,4 +1,9 @@
-
+/**
+ * Clase CircuitoProyectointerfaz
+ * Interfaz de circuitos  para cumplir con el patron decorator.
+ * @author Javier Santamaría Caballero
+ * @author Juan José Carballo Pacheco
+ */
 public interface CircuitoProyectoInterfaz {
 	public abstract Complejidad getComplejidadCircuito();
 	public abstract void setComplejidadCircuito(Complejidad complejidadCircuito);

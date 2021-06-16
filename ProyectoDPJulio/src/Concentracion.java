@@ -1,3 +1,9 @@
+/**
+ * Clase Concentracion
+ * Clase utilizada para las distintas instancias fijas del tipo enumerado Concentracion de un piloto.
+ * @author Javier Santamaría Caballero
+ * @author Juan José Carballo Pacheco
+ */
 public enum Concentracion {
 	DESPISTADO("DESPISTADO",90.0),
 	NORMAL("NORMAL",100.0),

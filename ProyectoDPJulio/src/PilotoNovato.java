@@ -1,7 +1,9 @@
 import java.io.BufferedWriter;
 /**
  * 	Clase PilotoNovato
- *  Clase utilizada para el tipo de piloto novato del strategy
+ *  Clase utilizada para el tipo de piloto novato del strategy.
+ *  @author Javier Santamaría Caballero
+ *  @author Juan José Carballo Pacheco
  * */
 public class PilotoNovato extends Piloto {
 	/**

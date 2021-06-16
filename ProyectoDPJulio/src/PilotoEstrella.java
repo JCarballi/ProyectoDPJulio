@@ -1,7 +1,7 @@
 import java.io.BufferedWriter;
 /**
  * Clase PilotoEstrella
- *Clase utilizada para el tipo depiloto estrella del strategy
+ *Clase utilizada para el tipo de piloto estrella del strategy.
  *@author Javier Santamaría Caballero
  *@author Juan José Carballo Pacheco
  * */

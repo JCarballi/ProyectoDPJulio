@@ -1,4 +1,10 @@
 import java.util.*;
+/**
+ * Clase ComparadorCircuitoComplejidad
+ * Comparador para ordenar los circuitos por complejidad en la salida DatosCampeonatoFinPrematuro.
+ * @author Javier Santamaría Caballero
+ * @author Juan José Carballo Pacheco
+ */
 public class ComparadorCircuitoComplejidad implements Comparator<CircuitoProyectoInterfaz>{
 	@Override
 	public int compare(CircuitoProyectoInterfaz cir1, CircuitoProyectoInterfaz cir2) {

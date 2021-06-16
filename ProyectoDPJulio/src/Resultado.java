@@ -1,6 +1,6 @@
 	/**
 	 * Clase Resultado 
-	 * clase que almacena los resultados de los pilotos(tiempo y puntos)
+	 * clase que almacena los resultados de los pilotos(tiempo y puntos).
 	 * @author Javier Santamaría Caballero
 	 * @author Juan José Carballo Pacheco
 	 * */

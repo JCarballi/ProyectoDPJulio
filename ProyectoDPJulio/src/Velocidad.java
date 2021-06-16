@@ -1,6 +1,6 @@
 /**
  * Clase enumerada Velocidad
- * Clase utilizada para la creacion de los valores de las diferentes instancias de la clase velocidad.
+ * Clase utilizada para la creacion de los valores de las diferentes instancias de la clase velocidad teorica de los coches
  * @author Javier Santamaría Caballero
  * @author Juan José Carballo Pacheco
  *

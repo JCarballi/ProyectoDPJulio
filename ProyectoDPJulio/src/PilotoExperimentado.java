@@ -1,7 +1,7 @@
 import java.io.BufferedWriter;
 /**
  * Clase PilotoExperimentado
- * clase utilizada para el tipo de piloto experimentado del strategy
+ * clase utilizada para el tipo de piloto experimentado del strategy.
  *@author Javier Santamaría Caballero
  *@author Juan José Carballo Pacheco
  * */
