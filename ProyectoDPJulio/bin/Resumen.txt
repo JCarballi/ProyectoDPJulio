@@ -1,0 +1,13 @@
+Javier Santamaría Caballero
+Juan José Carballo Pacheco
+
+Clase main en RallyDemo.java
+Para cambiar entre las distintas clases de datos únicamente se debe comentar la clase de datos
+que se está utilizando y descomentar la que se desee utilizar.
+
+-Pruebas con JUnit
+-Aplicación de patrones aparte del Singleton
+-Iterator
+-Salida por fichero
+-Uso de excepciones
+-Uso de GitHub

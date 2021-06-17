@@ -1,7 +1,8 @@
 import java.util.*;
 /**
  * Clase ComparadorPilotoTotalCarreras
- * Lo usamos para ordenar los pilotos dentro de la carerra en las simulaciones.
+ * Lo usamos para ordenar los pilotos dentro de la carerra en las simulaciones y
+ * para la clasificación final de pilotos
  * @author Javier Santamaría Caballero
  * @author Juan José Carballo Pacheco
  */

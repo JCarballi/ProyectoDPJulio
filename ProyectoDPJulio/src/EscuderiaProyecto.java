@@ -56,8 +56,7 @@ public class EscuderiaProyecto {
 	public double puntosEscuderiaAcum() {
 		double pTotalesE=0;
 		for (Piloto p : conjuntoPilotos) {
-			if(!p.isDescalificado())
-				pTotalesE+=p.puntosAcumulados();
+			pTotalesE+=p.puntosAcumulados();
 		} 
 		return pTotalesE;
 	}

@@ -21,9 +21,9 @@ public class RallyDemo {
 				new FileWriter("output.log"));
 			
        /*elegimos entre un conjunto de datos para la simulación u otros)*/
-		DatosCampeonatoCompleto d = new DatosCampeonatoCompleto(writer); //lo hacemos así porque su initData es privado
+		//DatosCampeonatoCompleto d = new DatosCampeonatoCompleto(writer); //lo hacemos así porque su initData es privado
 		//DatosCampeonatoFinPrematuro d2 = new DatosCampeonatoFinPrematuro(writer);
-		//DatosCampeonatoPremioDesierto d3 = new DatosCampeonatoPremioDesierto(writer);
+		DatosCampeonatoPremioDesierto d3 = new DatosCampeonatoPremioDesierto(writer);
      
 		Comparator<Piloto> cPilotoCarrerasTotales = new ComparadorPilotoTotalCarreras();/*pàra ordenar los pilotos dentro de la carrera*/
 		OrganizacionProyecto.getInstance().campeonato(cPilotoCarrerasTotales); /*ejecutar con los datos de una determinada salida elegida arriba*/ 

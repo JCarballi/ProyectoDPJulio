@@ -135,7 +135,7 @@ public class OrganizacionProyecto {
 					Piloto p = listaPilotosProyecto.get(j);
 					if(p.getResults(circui.getNombreCircuito()).getTiempo() <= 0) {/*si no ha acabado*/
 						System.out.print("¡¡¡ Ha abandonado "+ p.getNombrePiloto() +" "+p.getResults(circui.getNombreCircuito()));
-						writer.write("¡¡¡ Ha abandonado "+ p.getNombrePiloto() +" "+p.getResults(circui.getNombreCircuito())+"\n");
+						writer.write("¡¡¡ Ha abandonado "+ p.getNombrePiloto() +" "+p.getResults(circui.getNombreCircuito()));
 						if(p.isDescalificado()) {
 							System.out.println(" - Además ha sido descalificado para el resto del Campeonato !!!");
 							writer.write(" - Además ha sido descalificado para el resto del Campeonato !!!\n");
@@ -231,11 +231,8 @@ public class OrganizacionProyecto {
 					case 3:
 						r.setPuntos(4);
 						break;
-					case 4:
-						r.setPuntos(2);
-						break;
 					default:
-						r.setPuntos(0);
+						r.setPuntos(2);
 						break;
 					}
 				}
@@ -334,6 +331,7 @@ public class OrganizacionProyecto {
 		
 		for(CircuitoProyectoInterfaz c : this.listaCircuitos) {/*mostramos la información de todos los circuitos*/
 			System.out.println(c.toString());
+			writer.write(c.toString()+"\n");
 		}
 		System.out.println("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
 		writer.write("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||\n");
@@ -506,17 +504,18 @@ public class OrganizacionProyecto {
 		writer.write("************ ESCUDERIAS DESCALIFICADAS *************\n");
 		writer.write("****************************************************\n");
 		
+		listaEscuderias.sort(new ComparadorEscuderiaFinal());
 		
 		/*Mostramos la información asociada a las escuderías descalificadas*/
 		for(int i=0; i<listaEscuderias.size(); i++) {
 			EscuderiaProyecto e = listaEscuderias.get(i);
 			if(e.isDescalificada()) {
-				System.out.println("¡¡¡ Escudería Descalificada: "+e.getNombreEscuderia()+" con "+e.puntosEscuderiaAcum()+" puntos !!!");
+				System.out.println("¡¡¡ Escudería Descalificada: "+e.getNombreEscuderia()+" con 0.0 puntos !!!");
 				System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
 				System.out.println("%%% "+e.getNombreEscuderia().toUpperCase()+" %%%");
 				System.out.println(e.toString());
 				System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
-				writer.write("¡¡¡ Escudería Descalificada: "+e.getNombreEscuderia()+" con "+e.puntosEscuderiaAcum()+" puntos !!!\n");
+				writer.write("¡¡¡ Escudería Descalificada: "+e.getNombreEscuderia()+" con 0.0 puntos !!!\n");
 				writer.write("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n");
 				writer.write("%%% "+e.getNombreEscuderia().toUpperCase()+" %%%\n");
 				writer.write(e.toString()+"\n");
