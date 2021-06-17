@@ -6,12 +6,12 @@ import java.io.IOException;
  * @author Juan José Carballo Pacheco
  */
 public interface InterfazCoches {/*Para el strategy en Pilotos*/
-	/*nota:los métodos que sean necesarios serán explicados en la clase que los implementa*/
-	public double velocidadRealCoche(double destreza, CircuitoProyectoInterfaz c) throws IOException;
-	public double tiempoNecesarioTerminar(double destreza, CircuitoProyectoInterfaz c) throws IOException;
-	public void reducirCombustible(double combustibleAct);
-	public String getNombreCoche();
-	public double getCombustibleAct();
-	public Velocidad getVelocidadCoche();
+    /*nota:los métodos que sean necesarios serán explicados en la clase que los implementa*/
+    public double velocidadRealCoche(double destreza, CircuitoProyectoInterfaz c) throws IOException;
+    public double tiempoNecesarioTerminar(double destreza, CircuitoProyectoInterfaz c) throws IOException;
+    public void reducirCombustible(double combustibleAct);
+    public String getNombreCoche();
+    public double getCombustibleAct();
+    public Velocidad getVelocidadCoche();
 
 }

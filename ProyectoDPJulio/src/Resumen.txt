@@ -11,6 +11,6 @@ que se está utilizando y descomentar la que se desee utilizar.
 -Salida por fichero
 -Uso de excepciones
 -Uso de GitHub: 
-	* Un repositorio para la versión inicial y la segunda versión
-	* Otro repositorio para otras versiones posteriores
-	* Otro repositorio para la siguiente versión en la que se ha ido modificando el código
+    * Un repositorio para la versión inicial y la segunda versión
+    * Otro repositorio para otras versiones posteriores
+    * Otro repositorio para la siguiente versión en la que se ha ido modificando el código
