@@ -8,14 +8,14 @@ import java.io.IOException;
  */
 public class CocheResistenteProyecto extends CocheProyecto {
 	protected double reservaExtra=100.0;/*atributo de valor fijo que se puede reducir si se usa la reservaExtra*/
-    
-	
+
+
 	protected double getReservaExtra() {
 		return reservaExtra;
 	}
 	public CocheResistenteProyecto(String nombreCoche,Velocidad v,Combustible c,BufferedWriter writer) {
 		super(nombreCoche,v,c, writer);
-		
+
 	}
 	/**
 	 *Método para reducir el combustible de manera especial en los cochesResistentes con la reservaExtra.

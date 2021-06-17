@@ -13,7 +13,7 @@ public class CircuitoMojadoProyecto extends CircuitoProyectoDecorado{
 	public CircuitoMojadoProyecto(CircuitoProyectoInterfaz cpi) {
 		super(cpi);
 	}
-	
+
 	/**
 	 * Método que calcula la complejidad para el circuitoMojado
 	 * @return complejidad circuitoMojado

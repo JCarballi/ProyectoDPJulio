@@ -14,7 +14,7 @@ public abstract class Piloto {
 	private Concentracion concentracionPiloto;
 	private boolean descalificado;
 	private HashMap<String,Resultado> results;/*Mapa de resultados cuya clave es el nombre del circuito*/
-	
+
 	private BufferedWriter writer;/*escritura en el fichero de lo que se muestre por pantalla en la clase*/
 
 	public Piloto(String nombrePiloto, InterfazCoches c, Concentracion concentracionPiloto, BufferedWriter writer) {
@@ -66,7 +66,7 @@ public abstract class Piloto {
 	 *
 	 * */
 	public abstract double calcularDestrezaPiloto();
-	
+
 	public Resultado getResults(String nombrecircuito) {
 		return results.get(nombrecircuito);
 	}
@@ -79,7 +79,7 @@ public abstract class Piloto {
 	 *
 	 * */
 	public double puntosAcumulados() {
-		
+
 		double totalPunts=0;
 		for (String  nombreCircuito : results.keySet()) {//voy cogiendo 1 a 1 todas ñlas claves del mapa
 			Resultado r=	results.get(nombreCircuito);
@@ -164,14 +164,14 @@ public abstract class Piloto {
 					System.out.println("¡¡¡ En el momento de quedarse sin combustible llevaba en carrera "+ (Math.round(tiempoNeces+this.getC().getCombustibleAct()*100d)/100d) +" minutos !!!");
 					writer.write("¡¡¡ El "+ this.getC().getNombreCoche() +" se quedó sin combustible a falta de "+ -this.getC().getCombustibleAct() +" minutos para terminar !!! \n");
 					writer.write("¡¡¡ En el momento de quedarse sin combustible llevaba en carrera "+ (Math.round(tiempoNeces+this.getC().getCombustibleAct()*100d)/100d) +" minutos !!! \n");
-					
+
 				}else {/*si ha sido por falta de concentración*/
 					/*mostramos los mensajes correspondientes en la simulación por la perdida de concentración*/
 					System.out.println("¡¡¡ "+this.getNombrePiloto()+" perdió la concentración a falta de "+ -concentracionRestante +" minutos para terminar !!! ");
 					System.out.println("¡¡¡ En el momento del despiste llevaba en carrera "+ (Math.round((tiempoNeces+concentracionRestante)*100d)/100d)+" minutos !!! ");
 					writer.write("¡¡¡ "+this.getNombrePiloto()+" perdió la concentración a falta de "+ -concentracionRestante +" minutos para terminar !!! \n");
 					writer.write("¡¡¡ En el momento del despiste llevaba en carrera "+ (Math.round((tiempoNeces+concentracionRestante)*100d)/100d)+" minutos !!! \n");
-					
+
 				}
 			}else {/*en caso contrario,ha terminado la carrera*/
 				System.out.println("+++ "+this.getNombrePiloto()+" termina la carrera en "+ tiempoNeces +"minutos +++");
@@ -214,7 +214,7 @@ public abstract class Piloto {
 			return false;
 		return true;
 	}
- /*se ejecuta el toString de un piloto u otro según la clase de la jerarquia en la que nos encontremos*/
+	/*se ejecuta el toString de un piloto u otro según la clase de la jerarquia en la que nos encontremos*/
 	@Override
 	public String toString() {
 		return "<piloto:"+getNombrePiloto()+"> <tipo:"+getClass().getName()+"> <dest:"+calcularDestrezaPiloto()+"> <conc:"+ getConcentracionPiloto().toString()+"> <descalificado:"+isDescalificado()+">";

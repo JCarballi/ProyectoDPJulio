@@ -154,7 +154,7 @@ public class EscuderiaProyecto {
 		aux.addAll(conjuntoPilotos);
 		this.conjuntoPilotos = aux;
 	}
-	
+
 	/**
 	 * Método que cambia la ordenación del conjuntoCoches
 	 * @param eCoch comparador por el que se va a ordenar a partir de ahora conjuntoCoches

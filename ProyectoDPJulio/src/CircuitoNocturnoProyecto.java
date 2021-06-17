@@ -4,8 +4,8 @@
  * @author Javier Santamaría Caballero
  * @author Juan José Carballo Pacheco
  */
-  public class CircuitoNocturnoProyecto extends CircuitoProyectoDecorado {
-	 /*valores usados para el calculo de esta complicacion(complejidad y distancia circuito)*/
+public class CircuitoNocturnoProyecto extends CircuitoProyectoDecorado {
+	/*valores usados para el calculo de esta complicacion(complejidad y distancia circuito)*/
 	private static final double complejiCirc=1.2;
 	private static final double distancia=0.8;
 

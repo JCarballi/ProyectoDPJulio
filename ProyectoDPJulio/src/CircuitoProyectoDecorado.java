@@ -22,5 +22,5 @@ public abstract class CircuitoProyectoDecorado extends CircuitoProyecto  {
 		return	cp.getComplicaciones()+getClass().getName()+" ";
 
 	}
-	
+
 }

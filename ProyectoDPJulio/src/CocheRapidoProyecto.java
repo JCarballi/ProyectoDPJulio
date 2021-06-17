@@ -21,7 +21,7 @@ public class CocheRapidoProyecto extends CocheProyecto{
 	 *@param c circuito en el que corre
 	 *@throws IOException
 	 *@return veloReal*/
-	 
+
 	@Override/* lo sobreescribimos para que se escriba el del hijo*/
 	public double velocidadRealCoche(double destreza, CircuitoProyectoInterfaz c) throws IOException {
 		double veloFinal=0;
@@ -50,7 +50,7 @@ public class CocheRapidoProyecto extends CocheProyecto{
 
 	@Override/*imprime las características de un coche (con el tipo de clase coche rapido) mas la caracteristica especial del coche rapido del nitroPendiente*/
 	public String toString() {
-		
+
 		return super.toString()+" <nitroPendiente: "+getDepositoN()+">";
 	}
 

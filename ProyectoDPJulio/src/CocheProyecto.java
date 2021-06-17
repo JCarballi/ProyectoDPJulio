@@ -13,7 +13,7 @@ public class CocheProyecto implements InterfazCoches {
 	private Combustible combustibleCoche;
 	protected double combustibleAct; /*protegido  para poder usarlo en los hijos de la herencia*/
 	protected BufferedWriter writer;
-	
+
 	public double getCombustibleAct() {
 		return combustibleAct;
 	}
@@ -71,10 +71,10 @@ public class CocheProyecto implements InterfazCoches {
 	 */
 	public double velocidadRealCoche(double destreza, CircuitoProyectoInterfaz c) throws IOException {
 		double veloReal = Math.round(((this.velocidadCoche.getValor() *destreza) / c.getValorComplejidadCircuito())*100d)/100d;	
-		
+
 		System.out.println("Con estas condiciones es capaz de correr a "+ veloReal +"km/h");
 		writer.write("Con estas condiciones es capaz de correr a "+ veloReal +"km/h\n");
-		
+
 		return veloReal;	
 
 	}
@@ -88,7 +88,7 @@ public class CocheProyecto implements InterfazCoches {
 	 */
 	public double tiempoNecesarioTerminar(double destreza, CircuitoProyectoInterfaz c) throws IOException {
 		double veloReal=this.velocidadRealCoche(destreza, c);
-					
+
 		return  Math.round(((c.getValorDistanciaCircuito()/veloReal)*60)*100d)/100d;
 	}
 

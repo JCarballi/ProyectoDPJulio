@@ -13,5 +13,5 @@ public interface InterfazCoches {/*Para el strategy en Pilotos*/
 	public String getNombreCoche();
 	public double getCombustibleAct();
 	public Velocidad getVelocidadCoche();
-	
+
 }

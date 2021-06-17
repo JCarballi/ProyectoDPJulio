@@ -1,9 +1,9 @@
 /**
-	 * Clase Distancia
-	 * Clase de tipo enumerado para las distintas instancias con valor fijo del enumerado Distancia de Circuitos.
-	 * @author Javier Santamaría Caballero
-	 * @author Juan José Carballo Pacheco
-	 */
+ * Clase Distancia
+ * Clase de tipo enumerado para las distintas instancias con valor fijo del enumerado Distancia de Circuitos.
+ * @author Javier Santamaría Caballero
+ * @author Juan José Carballo Pacheco
+ */
 public enum Distancia {
 	CORTA("CORTA",250.0),
 	INTERMEDIA("INTERMEDIA",275.0),

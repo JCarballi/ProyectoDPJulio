@@ -25,5 +25,5 @@ public enum Combustible {
 		return getNombre()+"("+getValor()+")";
 
 	}
-	
+
 }

@@ -1,9 +1,9 @@
-	/**
-	 * Clase Resultado 
-	 * clase que almacena los resultados de los pilotos(tiempo y puntos).
-	 * @author Javier Santamaría Caballero
-	 * @author Juan José Carballo Pacheco
-	 * */
+/**
+ * Clase Resultado 
+ * clase que almacena los resultados de los pilotos(tiempo y puntos).
+ * @author Javier Santamaría Caballero
+ * @author Juan José Carballo Pacheco
+ * */
 public class Resultado {
 	private double tiempo;/*tiempo empleado por ese piloto en ese circuito*/
 	private double puntos;/*puntos obtenidos por ese piloto en ese circuito*/

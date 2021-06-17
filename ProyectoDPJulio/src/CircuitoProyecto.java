@@ -50,7 +50,7 @@ public class CircuitoProyecto implements CircuitoProyectoInterfaz {
 	public String getComplicaciones(){
 		return "";
 	}
-	
+
 	@Override
 	public String toString() {
 		return "<circuito:"+getNombreCircuito()+"> <cond:"+ getComplicaciones()+"> <comp: "+getComplejidadCircuito().toString()+"(actual:"+getValorComplejidadCircuito()+")> <dist: "+getDistanciaCircuito().toString()+"(actual:"+getValorDistanciaCircuito()+")>";

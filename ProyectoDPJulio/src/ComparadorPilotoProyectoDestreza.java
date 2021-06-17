@@ -14,8 +14,8 @@ public class ComparadorPilotoProyectoDestreza implements Comparator<Piloto> {
 			return 1;
 		else
 			return -1;
-				
+
 	}
-	
+
 
 }
